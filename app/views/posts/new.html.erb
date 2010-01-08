@@ -1,0 +1,29 @@
+<h1>New Posts</h1>
+
+<%= error_messages_for :registration %>
+
+<!-- #START:form_for -->
+<% form_for([@blog, @post]) do |f| -%>
+   <p>
+    <%= f.label :Title %><br />
+    <%= f.text_field :title %>
+  </p>
+  <p>
+    <%= f.label :Body %><br />
+    <%= f.text_area :body %>
+  </p>
+  <p>
+    <%= f.label :created_at %><br />
+    <%= f.datetime_select :created_at %>
+  </p>
+  <p>
+    <%= f.label :updated_at %><br />
+    <%= f.datetime_select :updated_at %>
+  </p>
+  <p>
+    <%= f.submit 'Create' %>
+  </p>
+<% end -%>
+<!-- #END:form_for -->
+
+<%= link_to 'Back', blog_posts_path(@blog) %>

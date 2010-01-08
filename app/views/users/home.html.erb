@@ -1,0 +1,51 @@
+<% if logged_in? %>
+
+<h2>Welcome to Yo Smartup  <%= current_user.name %></h2>
+
+<% if current_user.facebook_user? %>
+<fb:profile-pic uid="<%= current_user.fb_user_id%>" facebook-logo="true" size="thumb" ></fb:profile-pic>
+
+
+<%= javascript_include_tag  :defaults %> 
+
+<h4>Blogs</h4>
+<%=button_to_function "Hide", visual_effect(:toggle_appear, "fade", :duration => 0.5)%>
+<%=button_to_function "Show", visual_effect(:toggle_slide, "fade",:duration => 1)%>
+<%=button_to_function "Highlight", visual_effect(:highlight, "fade",:startcolor => '#ffff99', :endcolor => '#ffffff')%>
+ 
+<div id="fade" style="border:1px solid #dbdbdb; margin:50px;">
+
+<%= link_to 'Enter Your Blog', blogs_path %>
+
+
+</div>
+
+
+<p><a href="#" onclick='FB.Connect.logoutAndRedirect("/logout")'>Logout</a></p>\
+
+<% else %>
+
+<%= javascript_include_tag  :defaults %> 
+
+<p>Welcome to Yosmartup</p>
+
+<h4>Blogs</h4>
+<%=button_to_function "Hide", visual_effect(:toggle_appear, "fade", :duration => 0.5)%>
+<%=button_to_function "Show", visual_effect(:toggle_slide, "fade",:duration => 1)%>
+<%=button_to_function "Highlight", visual_effect(:highlight, "fade",:startcolor => '#ffff99', :endcolor => '#ffffff')%>
+
+<div id="fade" style="border:1px solid #dbdbdb; margin:50px;">
+<%= link_to 'Enter Your Blog', blogs_path %>
+<br>
+
+
+</div>
+
+<p>why don't you connect with your facebook account</p>
+<%= fb_login_button('window.location = "/users/link_user_accounts";')%>
+<p><%= link_to 'Logout', logout_path%></p>
+<% end %>
+<% else %>
+<p>Welcome To YoSmartup !! A Social Network For Enterprising people ..</p>
+<%= fb_login_button('window.location = "/users/link_user_accounts";')%>
+<% end %>

@@ -1,0 +1,19 @@
+<h1>Listing Blogs</h1>
+
+<table>
+
+
+<% @blogs.each do |blog| %>
+  <tr>
+	<tr><th>Name</th></tr>
+	<td><%=h blog.name %></td>
+	<td><%= link_to 'Show', blog %></td>
+	<td><%= link_to 'Edit', edit_blog_path(blog) %></td>
+	<td><%= link_to 'Destroy', blog, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New blog', new_blog_path %>

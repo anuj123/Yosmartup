@@ -1,0 +1,25 @@
+body {
+  font-family: sans-serif;
+  background: #00FF99;
+  margin: 0;
+  text-align: center;
+}
+
+#whole_page {
+  width: 47em;
+  margin: auto;
+  padding: 0;
+  text-align: left;
+  border-width:  1px 1px 1px 1px;
+  border-color:  black;
+  border-style:  solid;
+}
+p
+{
+color:black;
+text-align:center
+margin-left:auto;
+margin-right:auto;
+width:70%;
+
+} 

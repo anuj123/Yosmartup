@@ -1,0 +1,22 @@
+<p>
+  <b>Title</b>
+  <%=h @post.title %>
+</p>
+
+<p>
+  <b>Body</b>
+  <%=h @post.body %>
+</p>
+
+<p>
+  <b>Created At</b>
+  <%=h @post.created_at %>
+</p>
+<p>
+  <b>Updated At</b>
+  <%=h @post.updated_at %>
+</p>
+
+
+<%= link_to 'Edit', edit_blog_post_path(@blog,@post) %> |
+<%= link_to 'Back', blog_posts_path %>
