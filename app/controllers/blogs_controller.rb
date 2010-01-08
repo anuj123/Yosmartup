@@ -3,10 +3,10 @@ class BlogsController < ApplicationController
   # GET /events.xml
  layout "application"
  
- before_filter :find_fb_user_id
+ 
  
   def index
-	@blogs = @user.blogs.find(:all)
+	@blogs = Blog.find(:all)
 
 	respond_to do |format|
 	  format.html # index.html.erb
@@ -17,7 +17,7 @@ class BlogsController < ApplicationController
   # GET /events/1
   # GET /events/1.xml
   def show
-	@blog = @user.blogs.find(params[:id])
+	@blog = Blog.find(params[:id])
 
 	respond_to do |format|
 	  format.html # show.html.erb
@@ -28,7 +28,7 @@ class BlogsController < ApplicationController
   # GET /events/new
   # GET /events/new.xml
   def new
-	@blog = @user.blog.new
+	@blog = Blog.new
 
 	respond_to do |format|
 	  format.html # new.html.erb
@@ -38,13 +38,13 @@ class BlogsController < ApplicationController
 
   # GET /events/1/edit
   def edit
-	@blog = @user.blog.find(params[:id])
+	@blog = Blog.find(params[:id])
   end
 
   # POST /events
   # POST /events.xml
   def create
-	@blog = @user.blog.new(params[:blog])
+	@blog = Blog.new(params[:blog])
 
 	respond_to do |format|
 	  if @blog.save
@@ -61,7 +61,7 @@ class BlogsController < ApplicationController
   # PUT /events/1
   # PUT /events/1.xml
   def update
-	@blog = @user.blog.find(params[:id])
+	@blog = Blog.find(params[:id])
 
 	respond_to do |format|
 	  if @blog.update_attributes(params[:blog])
@@ -78,7 +78,7 @@ class BlogsController < ApplicationController
   # DELETE /events/1
   # DELETE /events/1.xml
   def destroy
-	@blog = @user.blog.find(params[:id])
+	@blog = Blog.find(params[:id])
 	@blog.destroy
 
 	respond_to do |format|
@@ -87,9 +87,5 @@ class BlogsController < ApplicationController
 	end
   end
   
-  private
-
-  def find_fb_user_id
-  @user = User.find(params[:fb_user_id])
-  end
+  
 end
